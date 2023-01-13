@@ -1,0 +1,26 @@
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.app-container {
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.app-item button {
+  padding: 0.5rem 1.5rem;
+  margin-left: 1rem;
+}
+
+.counter {
+  margin-top: 2rem;
+  font-size: 2rem;
+}
