@@ -36,7 +36,7 @@ def smallerNumbersThanCurrent(nums):
 # print(smallerNumbersThanCurrent([8,1,2,2,3])) # [4,0,1,1,3]
 # print(smallerNumbersThanCurrent([6,5,4,8])) # [2,1,0,3]
 
-# O(nlogn) solution
+# O(n^2) solution
 def countSmallerThanCurrent(nums):
   result = []
   sorted_nums = sorted(nums)
@@ -44,5 +44,17 @@ def countSmallerThanCurrent(nums):
     result.append(sorted_nums.index(nums[i]))
   return result
 
+# print(countSmallerThanCurrent([8,1,2,2,3])) # [4,0,1,1,3]
+# print(countSmallerThanCurrent([6,5,4,8])) # [2,1,0,3]
+
+# O(nlogn) solution
+def countSmallerThanCurrent(nums):
+    sorted_nums = sorted(nums)
+    rank_map = {}
+
+    for i, num in enumerate(sorted_nums):
+        if num not in rank_map: 
+            rank_map[num] = i
+    return [rank_map[num] for num in nums]
+  
 print(countSmallerThanCurrent([8,1,2,2,3])) # [4,0,1,1,3]
-print(countSmallerThanCurrent([6,5,4,8])) # [2,1,0,3]
