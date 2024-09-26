@@ -22,7 +22,7 @@
 # Input: nums = [7,7,7,7]
 # Output: [0,0,0,0]
 
-
+# O(n^2) solution
 def smallerNumbersThanCurrent(nums):
   result = []
   for i in range(len(nums)):
@@ -33,5 +33,16 @@ def smallerNumbersThanCurrent(nums):
     result.append(count)
   return result
 
-print(smallerNumbersThanCurrent([8,1,2,2,3])) # [4,0,1,1,3]
-print(smallerNumbersThanCurrent([6,5,4,8])) # [2,1,0,3]
+# print(smallerNumbersThanCurrent([8,1,2,2,3])) # [4,0,1,1,3]
+# print(smallerNumbersThanCurrent([6,5,4,8])) # [2,1,0,3]
+
+# O(nlogn) solution
+def countSmallerThanCurrent(nums):
+  result = []
+  sorted_nums = sorted(nums)
+  for i in range(len(nums)):
+    result.append(sorted_nums.index(nums[i]))
+  return result
+
+print(countSmallerThanCurrent([8,1,2,2,3])) # [4,0,1,1,3]
+print(countSmallerThanCurrent([6,5,4,8])) # [2,1,0,3]
