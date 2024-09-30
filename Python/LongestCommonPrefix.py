@@ -26,10 +26,36 @@ def longestCommonPrefix(strs):
   if not strs:
     return ""
   shortest = min(strs, key=len)
+  
   for i, char in enumerate(shortest):
     for string in strs:
       if string[i] != char:
         return shortest[:i]
   return shortest
 
-print(longestCommonPrefix(["flower","flow","flight"])) # fl
+
+def isCommonPrefix(strs, length):
+    prefix = strs[0][:length]
+    
+    for string in strs[1:]:
+        if not string.startswith(prefix):
+            return False
+    return True
+
+def findLongestCommonPrefix(strs):
+    if not strs:
+        return ""
+    min_len = len(min(strs, key=len))
+    low, high = 0, min_len
+    
+    while low <= high:
+        mid = (low + high) // 2
+        if isCommonPrefix(strs, mid):
+            low = mid + 1  
+        else:
+            high = mid - 1  
+    
+    return strs[0][:high]
+
+
+print(findLongestCommonPrefix(["flower","flow","floight"])) 
