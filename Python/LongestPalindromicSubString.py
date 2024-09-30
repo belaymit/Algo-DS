@@ -28,6 +28,7 @@ def longestPalindrome(s):
       left -= 1
       right += 1
     return s[left + 1:right]
+  
   result = ""
   for i in range(len(s)):
     odd = expandAroundCenter(i, i)
@@ -35,5 +36,5 @@ def longestPalindrome(s):
     result = max(result, odd, even, key=len)
   return result
 
-print(longestPalindrome("babad")) # bab
-print(longestPalindrome("cbbd")) # bb
+print(longestPalindrome("ABRAKAAADAABRAAABBBABBABBBA")) 
+print(longestPalindrome("MADAM")) # bb
