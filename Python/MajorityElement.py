@@ -34,6 +34,6 @@ def majorityElement(nums) -> int:
         else:
             count -= 1
     
-    return candidate
+    return candidate  
 
 print(majorityElement([2, 2, 1, 1, 1, 3, 2, 3])) # 2
