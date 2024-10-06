@@ -58,7 +58,7 @@ def gasStation(gas, cost) -> int:
             startIndex = i + 1
             currentGas = 0
     
-    if totalGas < totalCost:
+    if totalGas < totalCost:  
         return -1
     
     return startIndex
