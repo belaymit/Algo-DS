@@ -13,7 +13,7 @@ class LinkedList:
             self.value = value
             
     def print_list(self):
-        while self:
+        while self: 
             print(self.value)
             self = self.next
     
@@ -28,6 +28,35 @@ class LinkedList:
         self = prev
         return self
             
+    # Delete a node from a linked list by value
+    
+    def delete(self, value):
+        if self.value == value:
+            return self.next
+        current = self
+        while current.next:
+            if current.next.value == value:
+                current.next = current.next.next
+                return self
+            current = current.next
+        return self
+    
+    # Insert a node at a specific position in a linked list
+    def insert_at(self, value, position):
+        if position == 0:
+            new_node = LinkedList(value)
+            new_node.next = self
+            return new_node
+        current = self
+        
+        while position > 1 and current.next:
+            current = current.next
+            position -= 1
+            
+        new_node = LinkedList(value)
+        new_node.next = current.next
+        current.next = new_node
+        return self
 
 #Test
 root = LinkedList(12)
